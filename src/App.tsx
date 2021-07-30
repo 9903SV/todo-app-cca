@@ -1,7 +1,7 @@
 import React from "react";
 import TodoApp from "./components/TodoApp";
 import { Provider } from "mobx-react";
-import { reaction, autorun } from "mobx";
+import { autorun } from "mobx";
 import { TodoStore } from "./stores/TodoStore/TodoStore";
 import { TodoAppServices } from "./services/TodoAppServices/TodoAppAPI";
 import "./App.css";

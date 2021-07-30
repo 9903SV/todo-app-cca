@@ -35,7 +35,7 @@ class TodoStore {
 
   @action.bound
   setGetTodoListAPIResponse = (response: any) => {
-    this.todoList = response;
+    this.todoList.replace(response);
     console.log("store response", response);
   };
 }
