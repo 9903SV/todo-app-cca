@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable, action, makeAutoObservable } from "mobx";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 import { API_INITIAL } from "@ib/api-constants";
 
@@ -9,8 +9,9 @@ class TodoStore {
   @observable getTodoListAPIError = null;
 
   constructor(TodoAppAPI: any) {
+    makeAutoObservable(this);
     this.TodoAppAPI = TodoAppAPI;
-    this.todoList = observable([]);
+    // this.todoList = observable([]);
   }
 
   @action.bound
@@ -35,7 +36,8 @@ class TodoStore {
 
   @action.bound
   setGetTodoListAPIResponse = (response: any) => {
-    this.todoList.replace(response);
+    // this.todoList.replace(response);
+    this.todoList = response;
     console.log("store response", response);
   };
 }
